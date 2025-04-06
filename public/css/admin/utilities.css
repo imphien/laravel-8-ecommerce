@@ -19,7 +19,7 @@ a{
     color: white;
 }
 body{
-    background-color: var(--secondary-col);
+    background-color: rgb(50, 49, 49);
     font-family: 'Roboto', sans-serif;
 }
 .cover{

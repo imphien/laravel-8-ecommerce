@@ -23,9 +23,12 @@ function updateTotal(){
 
     let sum = 0;
     for(let ele of productTotal)
-        sum += parseInt(ele.innerText.slice(1));
+    {
+        console.log(ele);
+        sum += parseInt(ele.innerText);
+    }
 
-    total.innerHTML = subtotal.innerHTML = '$'+sum;
+    total.innerHTML = subtotal.innerHTML = sum+'VNĐ';
 }
 
 function removeCart(ele ,id, isLogin){

@@ -11,11 +11,10 @@
     <link rel="stylesheet" href="{{ asset('css/user/utilities.css') }}">
     {{ $style ?? '' }}
     
-    <link rel="shortcut icon" href="{{ asset('img/b.png') }}" />
-    <title>Beyond | Profile</title>
+    <link rel="shortcut icon" href="{{ asset('img/logo_1.png') }}" />
+    <title>Thuốc Bắc Đỗ Gia</title>
 
     <script src="{{ asset('js/user/utilities.js') }}" defer></script>
-
 
     <style>
         a[href = "{{ url()->current() }}"]{
@@ -38,19 +37,18 @@
             
             @if (auth()->user()->admin)
                 <a style="color: blue; margin-top:1em" class="d-b" href="{{ route('admin.dashboard') }}">Dashboard</a>
-            @else
-                <button onclick="toggleForm()" class="cloak">Edit profile</button>
             @endif
 
             <!-- form -->
             <form class="cloak hide" action="{{ route('user.profile') }}" method="post">
                 @csrf
-                Name <br>
+                Tên <br>
                 <input class="input_text" type="text" name="" id=""><br>
-                Intro <br>
+                Giới thiệu <br>
                 <textarea class="input_text"></textarea>
 
-                <input type="submit" value="Save">
+                <input type="submit" value="Lưu
+                ">
                 <input onclick="toggleForm()" type="button" value="Cancel">
             </form>
             <!-- form -->
@@ -61,25 +59,20 @@
                     <li>
                         <a class="flex_align" href="{{ route('user.profile') }}">
                             <span class="material-icons">person</span>
-                            <div>Profile</div>
+                            <div>Tài khoản</div>
                         </a>
                     </li>
                     <li>
                         <a class="flex_align" href="{{ route('user.orders.index') }}">
                             <span class="material-icons">shopping_cart</span>
-                            <div>Orders</div>
+                            <div>Đơn hàng</div>
                         </a>
                     </li>
-                    <li>
-                        <a class="flex_align" href="{{ route('user.ship_info') }}">
-                            <span class="material-icons">credit_card</span>
-                            <div>Address/Payments</div>
-                        </a>
-                    </li>
+                    
                     <li>
                         <a class="flex_align" href="{{ route('user.setting') }}">
                             <span class="material-icons">settings</span>
-                            <div>Setting</div>
+                            <div>Cài đặt </div>
                         </a>
                     </li>
                 </ul>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
-   
+
     public function index()
     {
         $categories = Category::all();
@@ -18,36 +18,36 @@ class CategoryController extends Controller
         ]);
     }
 
-    
+
     public function create()
     {
         return view('admin.categories.create');
 
     }
 
-    
+
     public function store(Request $request)
     {
-        // validation
+        //  xác thực
         $validated = $request->validate([
             'title' => 'required|max:255',
-            'image' => 'required|image|max:50'//not more than 50 kilobytes
+            'image' => 'required|image'//k quá 50kb
         ]);
-        
-        // storing in database, take request parameter from the $validated, and not from the $request.
-        $path = Storage::putFile('categories', $validated['image']);
+
+        // lưu trữ trong cơ sở dữ liệu, lấy tham số yêu cầu từ $ được xác thực chứ không phải từ $request.
+        $path = Storage::putFile('public/categories', $validated['image']);
         $category = new Category();
         $category->title = $validated['title'];
-        $category->image = $path;
+        $category->image = str_replace('public', '', $path);
         $category->save();
 
         return redirect()->route('admin.categories.index')->with('status', $validated['title'].' category created');
 
     }
 
-    // public function show(Category $category)
-    
-    
+    // show category
+
+
     public function edit(Category $category)
     {
         return view('admin.categories.edit', [
@@ -55,24 +55,24 @@ class CategoryController extends Controller
         ]);
     }
 
-    
+
     public function update(Request $request, Category $category)
     {
         $validated = $request->validate([
             'title' => 'required|max:255',
-            'image' => 'image|max:50'//not more than 50 kilobytes
+            'image' => 'image'
         ]);
 
         $request->whenHas('image', function ($input) use ($category){
             Storage::delete($category->image);
-            $path = Storage::putFile('categories', $input);
-            $category->image = $path;
+            $path = Storage::putFile('public/categories', $input);
+            $category->image = str_replace('public', '', $path);
         });
 
         $category->title = $validated['title'];
         $category->save();
 
-        return redirect()->route('admin.categories.index')->with('status', $validated['title'].' category updated');
+        return redirect()->route('admin.categories.index')->with('status', $validated['title'].' Danh mục đã được cập nhật');
 
     }
 

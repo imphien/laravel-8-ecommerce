@@ -20,12 +20,15 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProductDetailsController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\User\OrderController;
+use App\Http\Controllers\User\UserController;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\NewController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -33,6 +36,8 @@ Route::get('/', [ShopController::class, 'home'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/product/{product}', ProductDetailsController::class)->name('product');
+Route::get('/news', [NewController::class, 'index'])->name('new');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
 // guest routes
@@ -46,36 +51,18 @@ Route::middleware('guest')->group(function(){
 
 
 Route::middleware('auth')->group(function(){
-
-    // email verification
-    Route::get('/verify-email', function (Request $request) {
-
-        return $request->user()->hasVerifiedEmail()
-        ? redirect()->intended(RouteServiceProvider::HOME)
-        : view('auth.verify-email');
-
-    })->name('verification.notice');
-
-    Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-                ->middleware('throttle:6,1')
-                ->name('verification.send');
-
-    Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-                ->middleware(['signed', 'throttle:6,1'])
-                 ->name('verification.verify');
-
-
     // Admin routes
     Route::middleware('admin')->name('admin.')->prefix('admin')->group(function(){
 
-        Route::get('/dashboard', DashboardController::class)->name('dashboard');    
+        Route::get('/dashboard', DashboardController::class)->name('dashboard');
         Route::resource('transactions', TransactionController::class)->only(['index', 'update']);
         // account
         Route::get('/account', [AdminAccountController::class, 'general'])->name('account');
         Route::post('/account', [AdminAccountController::class, 'update'])->name('account.update');
-        Route::post('/account/pwd', [AdminAccountController::class, 'updatePwd'])->name('account.pwd');
         // customers
-        Route::get('customers', fn() => view('admin.customer',['users' => User::all()]) )->name('customers');
+        Route::get('customers', function () {
+            return view('admin.customer', ['users' => User::all()]);
+        })->name('customers');
         // categories
         Route::resource('categories', CategoryController::class)->except(['show'])->parameters(['categories' => 'category']);
         // products
@@ -86,15 +73,14 @@ Route::middleware('auth')->group(function(){
     });
 
     Route::name('user.')->prefix('user')->group(function(){
-
-        Route::view('/profile', 'user.profile')->name('profile');
-        Route::post('/profile', function(){ return "This feature is under maintance mode"; });
+        Route::get('/profile', [UserController::class, 'show'])->name('profile');
+        Route::post('/{id}', [UserController::class, 'update'])->name('update');
         Route::resource('orders', OrderController::class)->only(['index', 'show', 'update']);
         Route::view('/ship_info', 'user.ship_info')->name('ship_info');
         Route::view('/setting', 'user.setting')->name('setting');
 
     });
-    
+
     Route::middleware('verified')->group(function(){
 
         Route::get('/checkout', [CheckoutController::class, 'showForm'])->name('checkout');
@@ -102,7 +88,7 @@ Route::middleware('auth')->group(function(){
 
     });
 
-    //GET USER ADDRESS 
+    //GET USER ADDRESS
     Route::get('/address', function(){
 
         /** @var App\Models\User $user **/
@@ -116,7 +102,7 @@ Route::middleware('auth')->group(function(){
     Route::delete('/remove_from_cart/{product}', [CartController::class, 'destroy'])->name('rfc');
     Route::put('update_cart/{product}/{quantity}', [CartController::class, 'update'])->name('uc');
 
-    // Generate fake details
+   
     Route::post('fake_address', function(){
         App\Models\Address::factory()->create(['user_id' => Auth::id()]);
         return back();
@@ -131,11 +117,3 @@ Route::middleware('auth')->group(function(){
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 });
-
-// ORDER MAIL PREVIEW
-
-// Route::get('/mailable', function () {
-//     $order = App\Models\Order::find(1);
-
-//     return new App\Mail\OrderShipped($order);
-// });

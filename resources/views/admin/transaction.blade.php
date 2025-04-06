@@ -17,10 +17,10 @@
                 <thead>
                     <tr>
                         <th>Transaction({{count($transactions)}})</th>
-                        <th>Amount</th>
-                        <th>Payment method</th>
-                        <th>Status</th>
-                        <th>Order</th>
+                        <th>Số lượng</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Trạng thái</th>
+                        <th>Đặt hàng</th>
                     </tr>
                 </thead>
                 @foreach ($transactions as $transaction)
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </td>
-                        <td>${{ $transaction->order->grand_total }}</td>
+                        <td>{{ $transaction->order->grand_total }} VNĐ</td>
                         <td>{{ $mode[$transaction->mode] }}</td>
                         <td><span style="background: {{$status[$transaction->status][1]}}" class="sm_card status">{{ $status[$transaction->status][0] }}</span></td>
                         <td><a href="{{ route('admin.orders.show', ['order' => $transaction->order->id]) }}">ORD-{{ $transaction->order->id }}</a></td>

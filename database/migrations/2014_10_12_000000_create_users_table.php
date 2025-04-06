@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->boolean('admin')->default(0);
             $table->string('mobile')->nullable();
             $table->string('image')->nullable();
-            // $table->timestamp('last_login'); (listen to the Illuminate\Auth\Events\Login event)
             $table->rememberToken();
             $table->timestamps();
         });

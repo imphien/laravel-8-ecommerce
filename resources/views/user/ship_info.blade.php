@@ -2,13 +2,13 @@
     {{--------------------- 
         $slot 
     --------------------}}
-    <h3>Your Address</h3>
+    <h3>Địa chỉ</h3>
         @if ($address = auth()->user()->addresses()->first())
             <div class="details_card">
-                <strong>Address line : </strong><span>{{$address->address_line}}</span><br>
-                <strong>City : </strong><span>{{$address->city}}</span><br>
-                <strong>Postal code : </strong><span>{{$address->postal_code}}</span><br>
-                <strong>Country : </strong><span>{{$address->country}}</span><br>
+                <strong>Địa chỉ chính xác : </strong><span>175 Tây Sơn Đống Đa Hà Nội</span><br>
+                <strong>Thành phố : </strong><span>Hà Nội</span><br>
+                <strong>Mã code : </strong><span>00120</span><br>
+                <strong>Nước : </strong><span>Việt Nam</span><br>
             </div><br><br>
         @else
             <form action="{{ route('fake_addr') }}" method="post">
@@ -17,11 +17,11 @@
             </form>
         @endif
     <hr>    
-    <h3>Your payments deatails</h3>
+    <h3>Chi tiết thanh toán của bạn </h3>
         @if ($payment = auth()->user()->payments()->first())
         <div class="details_card">
-            <strong>Card type : </strong><span>{{$payment->card_type}}</span><br>
-            <strong>Card number : </strong><span>************{{ substr($payment->card_number, -4) }}</span><br>
+            <strong>Loại Thẻ : </strong><span>{{$payment->card_type}}</span><br>
+            <strong>Số thẻ : </strong><span>************{{ substr($payment->card_number, -4) }}</span><br>
         </div>
         @else
             <form action="{{ route('fake_pay') }}" method="post">

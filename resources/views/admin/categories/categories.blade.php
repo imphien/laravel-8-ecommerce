@@ -16,14 +16,14 @@
             </p>
         @endif
         @if (!$categories->isEmpty())
-        <h1>Categories</h1><br>
+        <h1>Danh mục</h1><br>
 
         <div style="overflow-x: auto">
             <table style="width: 100%;min-width:450px" class="card">
                 <thead>
                     <tr>
-                        <td colspan="2">Category({{count($categories)}})</td>
-                        <td colspan="2">Action</td>
+                        <td colspan="2">Danh mục({{count($categories)}})</td>
+                        <td colspan="2">Hành Động</td>
                     </tr>
                 </thead>
                 @foreach ($categories as $category)
@@ -54,9 +54,9 @@
             <p>No categories created yet <a href="{{ route('admin.categories.create') }}">CREATE</a></p>
         @endif
     </div>
-    <x-modal title="Delete Category" ok="DELETE">
+    <x-modal title="Xoá danh mục" ok="Xoá">
         <x-slot name="description">
-            Are you sure you want to delete this category?
+            Bạn có chắc khi xoá danh mục?
         </x-slot>
     </x-modal>
     {{-- ------------------- 

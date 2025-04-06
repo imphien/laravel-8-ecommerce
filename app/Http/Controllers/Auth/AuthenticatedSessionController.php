@@ -22,7 +22,7 @@ class AuthenticatedSessionController extends Controller
         try {
             $request->authenticate();
         } catch (ValidationException $th) {
-            return back()->with('status', $th->errors()['email'][0] );
+            return back()->with('status', 'Email hoặc mật khẩu không đúng' );
         }
 
         $request->session()->regenerate();

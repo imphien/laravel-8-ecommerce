@@ -12,8 +12,8 @@
     {{ $style }}
 
 
-    <link rel="shortcut icon" href="{{ asset('img/b.png') }}" />
-    <title>Beyond | Science shop</title>
+    <link rel="shortcut icon" href="{{ asset('img/logo_1.png') }}" />
+    <title>Thuốc Bắc Đỗ Gia</title>
 
     <script src="{{ asset('js/utilities.js') }}" defer></script>
     {{ $js ?? '' }}
@@ -27,13 +27,11 @@
     {{ $slot }}
     {{-- main contents --}}
     <footer>
-        <div class="footer-links _container flex_align">
-            @each('components.temp', range(1, 4), 'link')
-        </div>
         <div class="site-info">
-            <a class="logo-link d-b" href="#"><img class="d-b" src="{{ asset('img/logo.jpg') }}"
+            <a class="logo-link d-b" href="#"><img class="d-b" src="{{ asset('img/logo_1.png') }}"
                     alt="logo"></a>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Kunal Saini !</p>
+            <p> Mọi chi tiết liên hệ </p>
+            <p> 0987481877 <p>
         </div>
     </footer>
 </body>

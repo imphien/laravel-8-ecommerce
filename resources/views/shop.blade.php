@@ -18,7 +18,7 @@
              <div class="close-btn" onclick="t_aside()"><span class=" material-icons">close</span></div>
             <div class="filter">
                 <div class="category">
-                    <h3>Category</h3>
+                    <h3>Danh mục</h3>
                     <ul>
                         @foreach ($category as $item)
                             <li style="color:{{$item->id == $cate ? '#3da8f3':''}}" onclick="updateQuery('category', {{$item->id}})">{{ ucfirst($item->title) }}</li>   
@@ -27,10 +27,10 @@
                 </div>
             </div>
             <div class="sort">
-                <h3>Sort</h3>
+                <h3>Sắp xếp</h3>
                 <ul>
-                    <li style="color:{{'ASC' == $sort ? '#3da8f3':''}}" onclick="updateQuery('sort', 'ASC')">Price: LOW to HIGH</li>
-                    <li style="color:{{'DESC' == $sort ? '#3da8f3':''}}" onclick="updateQuery('sort', 'DESC')">Price: HIGH to LOW</li>
+                    <li style="color:{{'ASC' == $sort ? '#3da8f3':''}}" onclick="updateQuery('sort', 'ASC')">Giá : Thấp đến cao</li>
+                    <li style="color:{{'DESC' == $sort ? '#3da8f3':''}}" onclick="updateQuery('sort', 'DESC')">Giá : Cao đến thấp</li>
                 </ul>
             </div>
          </aside>

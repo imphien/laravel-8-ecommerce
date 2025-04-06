@@ -16,17 +16,17 @@
             </p>
         @endif
         @if (!$products->isEmpty())
-        <h1>Products</h1><br>
+        <h1>Sản phẩm</h1><br>
         <div style="overflow-x: auto">
             <table style="width: 100%;min-width:650px" class="card">
                 <thead>
                     <tr>
                         <td></td>
-                        <td>Product({{count($products)}})</td>
-                        <td>Price</td>
-                        <td>Stock quantity</td>
-                        <td>Discount</td>
-                        <td colspan="2">Action</td>
+                        <td>Sản phẩm({{count($products)}})</td>
+                        <td>Giá</td>
+                        <td>Số lượng</td>
+                        <td>Giảm giá</td>
+                        <td colspan="2">Hành động</td>
                     </tr>
                 </thead>
                 @foreach ($products as $product)
@@ -37,8 +37,8 @@
                             </div>
                         </td>
                         <td>{{ ucfirst($product->title) }}</td>
-                        <td>{{ '$'.$product->price }}</td>
-                        <td>{{ $product->stock_quantity.' UNIT' }}</td>
+                        <td>{{ $product->price }}</td>
+                        <td>{{ $product->stock_quantity.'' }}</td>
                         <td>{{ $product->discount.'%' }}</td>
                         <td>
                             <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}">
@@ -60,9 +60,9 @@
             <p>No products avialable in stock <a href="{{ route('admin.products.create') }}">CREATE</a></p>
         @endif
     </div>
-    <x-modal title="Delete product" ok="DELETE">
+    <x-modal title="Xoá sản phẩm" ok="DELETE">
         <x-slot name="description">
-            Are you sure you want to delete this product?
+            Bạn có chắc khi xoá sản phẩm?
         </x-slot>
     </x-modal>
     {{-- ------------------- 

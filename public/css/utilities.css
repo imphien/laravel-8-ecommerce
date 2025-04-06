@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-    --head_col: #333333;
+    --head_col: #dcc984;
     --site_col_1: #3da8f3;
     --site_text_1: #b3b3b3;
 }
@@ -140,11 +140,11 @@ a {
 
 /* logo links(inside img) */
 .logo-link {
-    width: 8rem;
+    width: 6rem;
 }
 
 .logo-link img {
-    width: 100%;
+    width: 150%;
 }
 
 /* ============end

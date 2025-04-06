@@ -3,8 +3,8 @@
         {{-- <link rel="stylesheet" href="{{ asset('css/admin/') }}"> --}}
     </x-slot>
 
-    {{-- ------------------- 
-                   $slot 
+    {{-- -------------------
+                   $slot
                ------------------ --}}
     <div class="_container">
        @if ($errors->any())
@@ -12,7 +12,7 @@
                <p style="color: red">{{ $error }}</p>
            @endforeach
        @endif
-        <h2>Update product</h2>
+        <h2>Cập nhật sản phẩm</h2>
         <form class="card" action="{{ route('admin.products.update', ['product' => $product->id]) }}"
             method="post" enctype="multipart/form-data">
             @csrf
@@ -31,24 +31,25 @@
                 </select>
             </fieldset><br>
 
-            Product Name: <input type="text" name="title" value="{{ $product->title }}" required placeholder="Product name"><br><br>
+            Tên sản phẩm: <input type="text" name="title" value="{{ $product->title }}" required placeholder="Tên sản phẩm"><br><br>
 
-            Choose Img: <br><br>
+            Chọn hình ảnh: <br><br>
             <input id="up_img" type="file" name="image"><br><br>
 
             {{-- preview image --}}
             <img id="preview_img" style="max-width: 100px" src="{{ asset('storage/' . $product->image) }}"
                 alt="{{ $product->title }}"><br><br>
 
-            Product info: <input type="text" name="about" value="{{ $product->about }}" required placeholder="Product info"><br><br>
+            Thông tin sản phẩm: <textarea cols="60" rows="20" style="resize: none" name="about" value="{{ $product->about }}" required placeholder="Product info"></textarea>
+            <br><br>
 
-            Product price: <input type="number" name="price" min="0" value="{{ $product->price }}" required><br><br>
+            Giá sản phẩm: <input type="number" name="price" min="0" value="{{ $product->price }}" required><br><br>
 
-            Product stock quantity: <input type="number" min="0" name="stock_quantity" value="{{ $product->stock_quantity }}" required><br><br>
+            Số lượng sản phẩm: <input type="number" min="0" name="stock_quantity" value="{{ $product->stock_quantity }}" required><br><br>
 
-            Product discount: <input type="number" min="0" name="discount" value="{{ $product->discount }}" step="5"><br><br>
+            Giảm giá: <input type="number" min="0" name="discount" value="{{ $product->discount }}" step="5"><br><br>
 
-            <input type="submit" value="Update product">
+            <input type="submit" value="Cập nhật sản phẩm">
         </form>
     </div>
     <script>
@@ -60,7 +61,7 @@
             }
         }
     </script>
-    {{-- ------------------- 
-                   $slot 
+    {{-- -------------------
+                   $slot
                ------------------ --}}
 </x-admin-layout>

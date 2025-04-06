@@ -12,11 +12,11 @@
                     <p style="color: red">{{ $error }}</p>
                 @endforeach
             @endif
-            <h2>Create a new product</h2>
+            <h2>Tạo sản phẩm</h2>
             <form class="card" action="{{ route('admin.products.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <fieldset style="max-width: 200px">
-                    <legend>Category</legend>
+                    <legend>Danh mục</legend>
                     <select name="category_id" required>
                         @foreach ($categories as $category)
                             @if (old('category_id') == $category->id)
@@ -28,20 +28,20 @@
                     </select>
                 </fieldset><br>
 
-                Product Name: <input type="text" name="title" value="{{ old('title') }}" required placeholder="Product name"><br><br>
+                Tên sản phẩm: <input type="text" name="title" value="{{ old('title') }}" required placeholder="Tên sản phẩm"><br><br>
 
-                Choose Img: <br><br>
+                Chọn hình ảnh: <br><br>
                 <input type="file" name="image" required><br><br>
 
-                Product info: <input type="text" name="about" value="{{ old('about') }}" required placeholder="Product info"><br><br>
+                Thông tin sản phẩm: <input type="text" name="about" value="{{ old('about') }}" required placeholder="Thông tin"><br><br>
 
-                Product price: <input type="number" name="price" min="0" value="{{ old('price') }}" required><br><br>
+                Giá: <input type="number" name="price" min="0" value="{{ old('price') }}" required><br><br>
 
-                Product stock quantity: <input type="number" min="0" name="stock_quantity" value="{{ old('stock_quantity') }}" required><br><br>
+                Số lượng sản phẩm: <input type="number" min="0" name="stock_quantity" value="{{ old('stock_quantity') }}" required><br><br>
 
-                Product discount: <input type="number" min="0" value="{{ old('discount') }}" name="discount" step="5"><br><br>
+                Giảm giá: <input type="number" min="0" value="{{ old('discount') }}" name="discount" step="5"><br><br>
 
-                <input type="submit" value="Create product">
+                <input type="submit" value="Tạo sản phẩm mới">
             </form>
         </div>
     {{--------------------- 

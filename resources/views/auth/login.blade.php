@@ -14,12 +14,12 @@
             <input class="fill_data" type="password" name="password" id="password" required><br><br>
 
             <input type="checkbox" id="rem" name="remember">
-            <label for="rem">Remember me</label><br><br>
+            <label for="rem">Nhớ tài khoản</label><br><br>
 
             <div>
                 <div class="submit">
-                    <a href="{{ route('register') }}">Create an account</a>
-                    <input type="submit" value="LOG IN">
+                    <a href="{{ route('register') }}">Tạo tài khoản </a>
+                    <input type="submit" value="Đăng nhập">
                 </div>
             </div>
         </form>

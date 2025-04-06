@@ -19,9 +19,9 @@ Your Item(s) being send by Beyond Transportaion Services. Please note that a sig
 ## **Order summary**
 ___
 ```
-Item Subtotal:       ${{ $order->grand_total }}
-Shipping & Handling: ${{ $extra =  $order->grand_total < 10 ? 5 : 0 }}
-POD Convenience Fee: $0
+Item Subtotal:       {{ $order->grand_total }} VNĐ
+Shipping & Handling: {{ $extra =  $order->grand_total < 10 ? 5 : 0 }} VNĐ
+POD Convenience Fee: 0 VNĐ
 ```
 **Shipping Total:** &nbsp; &nbsp; &nbsp; &nbsp; **${{ $order->grand_total + $extra }}**
 ___

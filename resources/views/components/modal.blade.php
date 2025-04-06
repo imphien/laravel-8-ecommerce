@@ -4,7 +4,7 @@
             <h3>{{ $title }}</h3>
             <p>{{ $description }}</p>
             <div class="action flex_align">
-                <button onclick="closeModal()" class="modal-cancel">{{ $cancel ?? 'Cancel' }}</button>
+                <button onclick="closeModal()" class="modal-cancel">{{ $cancel ?? 'Huỷ' }}</button>
                 <button class="modal-ok">{{ $ok }}</button>
             </div>
         </div>

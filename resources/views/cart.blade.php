@@ -14,9 +14,9 @@
                 <table cellspacing="0">
                     <thead>
                         <tr>
-                            <td>Product</td>
-                            <td>Quantity</td>
-                            <td>Subtotal</td>
+                            <td>Sản phẩm</td>
+                            <td>Số lượng</td>
+                            <td>Thành tiền</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,14 +27,14 @@
                                         <img class="d-b" src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->title }}">
                                         <div class="details">
                                             <a href="{{route('product', ['product' => $product->id])}}" class="m-0">{{ ucfirst($product->title) }}</a>
-                                            <p>price: ${{$product->price}}</p>
+                                            <p>Giá: {{$product->price}}VNĐ </p>
                                             @auth
                                                 <form action="{{ route('rfc', ['product' => $product->id]) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
                                             @endauth
-                                            <a onclick="removeCart(this, {{$product->id}}, {{ auth()->check() }})" class="remove" href="#">Remove</a>
+                                            <a onclick="removeCart(this, {{$product->id}}, {{ auth()->check() }})" class="remove" href="#">Xoá sản phẩm</a>
                                         </div>
                                     </div>
                                 </td>
@@ -47,28 +47,28 @@
                                     @endauth
                                     <input type="number" min="1" max="20" onchange="updateQuantity({{$product->id}}, this, {{auth()->check()}})" value="{{$product->quantity}}">
                                 </td>
-                                <td  class="productTotal">${{$product->price*$product->quantity}}</td>
+                                <td  class="productTotal">{{$product->price*$product->quantity}}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
                 <table class="subtotal-table ml-auto">
                     <tr>
-                        <td>Subtotal</td>
+                        <td> Tiền sản phẩm</td>
                         <td id="subtotal"></td>
                     </tr>
                     <tr>
-                        <td>Tax</td>
-                        <td>$0</td>
+                        <td>Thuế</td>
+                        <td>0 VNĐ</td>
                     </tr>
                     <tr>
-                        <td>Total</td>
+                        <td>Tổng thanh toán</td>
                         <td id="total"></td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <div class="checkout">
-                                <a href="{{ route('checkout') }}">Proceed to checkout</a>
+                                <a href="{{ route('checkout') }}">Tiến hành kiểm tra thanh toán</a>
                             </div>
                         </td>
                     </tr>
@@ -79,9 +79,9 @@
                     </div>
                 @endif
             </main>
-            <x-modal title="Remove Item" ok="REMOVE">
+            <x-modal title="Xoá sản phẩm" ok="Xoá">
                 <x-slot name="description">
-                    Are you sure you want to remove this item?
+                    Bạn có chắc là xoá sản phẩm ?
                 </x-slot>
             </x-modal>
     {{--------------------- 

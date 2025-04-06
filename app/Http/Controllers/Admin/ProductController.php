@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    
+
     public function index()
     {
         return view('admin.products.products', [
@@ -19,7 +19,7 @@ class ProductController extends Controller
         ]);
     }
 
-   
+
     public function create()
     {
         return view('admin.products.create', [
@@ -27,26 +27,26 @@ class ProductController extends Controller
         ]);
     }
 
-   
+
     public function store(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|max:255',
-            'image' => 'required|image|max:50',
-            'about' => 'required|max:1000',
+            'image' => 'required|image',
+            'about' => 'required|max:2000',
             'price' => 'required|numeric|min:0',
             'stock_quantity' => 'required|numeric|min:0',
             'discount' => 'multiple_of:5|min:0',
             'category_id' => 'required|exists:categories,id'
         ]);
 
-        $path = Storage::putFile('products', $validated['image']);
+        $path = Storage::putFile('public/products', $validated['image']);
 
         $product = new Product();
         $category = Category::find($validated['category_id']);
 
         $product->title = $validated['title'];
-        $product->image = $path;
+        $product->image = str_replace('public', '', $path);
         $product->about = $validated['about'];
         $product->price = $validated['price'];
         $product->stock_quantity = $validated['stock_quantity'];
@@ -57,14 +57,14 @@ class ProductController extends Controller
 
         $category->products()->save($product);
 
-        return redirect()->route('admin.products.index')->with('status', 'product added successfully');
+        return redirect()->route('admin.products.index')->with('status', 'Thêm sản phẩm thành công');
     }
 
-    
-    // public function show(Product $product)
-    
 
-    
+    // public function show(Product $product)
+
+
+
     public function edit(Product $product)
     {
         return view('admin.products.edit', [
@@ -73,29 +73,28 @@ class ProductController extends Controller
         ]);
     }
 
-    
+
     public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
-            'title' => 'required|max:255',
-            'image' => 'required|image|max:50',
-            'about' => 'required|max:1000',
-            'price' => 'required|numeric|min:0',
-            'stock_quantity' => 'required|numeric|min:0',
+            'title' => 'max:255',
+            'image' => 'image',
+            'about' => 'max:1000',
+            'price' => 'numeric|min:0',
+            'stock_quantity' => 'numeric|min:0',
             'discount' => 'multiple_of:5|min:0',
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'exists:categories,id'
         ]);
-        
+
         $product->title = $validated['title'];
 
-        if($request->has(['image', 'discount'])){
+        if($request->has(['image'])){
             Storage::delete($product->image);
-            $path = Storage::putFile('products', $validated['image']);
-            $product->image = $path;
-
-            $product->discount = $validated['discount'];
+            $path = Storage::putFile('public/products', $validated['image']);
+            $product->image = str_replace('public', '', $path);
         }
 
+        $product->discount = $validated['discount'];
         $product->about = $validated['about'];
         $product->price = $validated['price'];
         $product->stock_quantity = $validated['stock_quantity'];
@@ -105,10 +104,10 @@ class ProductController extends Controller
         $category->products()->save($product);
 
 
-        return redirect()->route('admin.products.index')->with('status', 'product updated successfully');
+        return redirect()->route('admin.products.index')->with('status', 'Cập nhật sản phẩm thành công');
     }
 
-   
+
     public function destroy(Product $product)
     {
         Storage::delete($product->image);

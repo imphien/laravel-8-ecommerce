@@ -84,7 +84,7 @@ main {
         inset: 0;
         top: 60%;
         background-color: var(--head_col);
-        color: white;
+        color: rgba(255, 255, 255, 0.562);
         width: 100vw;
         transform: translateY(100vh);
         transition: transform 200ms ease-in-out;

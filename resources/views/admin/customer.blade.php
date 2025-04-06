@@ -10,15 +10,15 @@
             $slot 
         ------------------ --}}
     <div class="_container">
-        <h1>Cutomers</h1><br>
+        <h1>Khách hàng</h1><br>
         <div style="overflow-x: auto">
             <table style="width: 100%;min-width:650px" class="card">
                 <thead>
                     <tr>
-                        <th>Customer({{count($users)}})</th>
+                        <th>Khách hàng({{count($users)}})</th>
                         <th>Email</th>
-                        <th>Verified Email</th>
-                        <th>Admin</th>
+                        <!-- <th>Xác minh Email</th> -->
+                        <th>QTV</th>
                     </tr>
                 </thead>
                 @foreach ($users as $user)
@@ -35,8 +35,8 @@
                             </div>
                         </td>
                         <td>{{ $user->email }}</td>
-                        <td><span style="color: {{ $user->email_verified_at ? 'limegreen' : 'red' }}">{{ $user->email_verified_at ? "YES" : "NO" }}</span></td>
-                        <td><span style="color: {{ $user->admin ? 'limegreen' : 'red' }}">{{ $user->admin ? "YES" : "NO" }}</span></td>
+                        <!-- <td><span style="color: {{ $user->email_verified_at ? 'limegreen' : 'red' }}">{{ $user->email_verified_at ? "Có" : "Không" }}</span></td> -->
+                        <td><span style="color: {{ $user->admin ? 'limegreen' : 'red' }}">{{ $user->admin ? "Có" : "Không" }}</span></td>
                     </tr>
                 @endforeach
             </table>

@@ -12,13 +12,13 @@
                     <p style="color: red">{{ $error }}</p>
                 @endforeach
             @endif
-            <h2>Create a new category</h2>
+            <h2>Tạo danh mục mới</h2>
             <form class="card" action="{{ route('admin.categories.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                Category Name: <input type="text" name="title" value="{{ old('title') }}" required placeholder="Category name"><br><br>
-                Choose Img: <br><br>
+                Tên danh mục: <input type="text" name="title" value="{{ old('title') }}" required placeholder="Tên danh mục"><br><br>
+                Chọn ảnh: <br><br>
                 <input type="file" name="image" required><br><br>
-                <input type="submit" value="create category">
+                <input type="submit" value="Thêm danh mục">
             </form>
         </div>
     {{--------------------- 

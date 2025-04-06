@@ -32,8 +32,7 @@ class CheckoutController extends Controller
     }
 
     public function createOrder(Request $request){
-        // first_name, last_name, email, address_line, city, postal_code, country, mobile
-        // mode
+       
         $validated = $request->validate([
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
@@ -68,22 +67,16 @@ class CheckoutController extends Controller
         }
 
         $transaction = new Transaction();
-        // later add different payment method
+       
         $transaction->mode = 'COD';
         $transaction->status = 'N';
 
         $order->transactions()->save($transaction);
 
-        // C : Complete
+    
         $userCart->status = 'C';
         $userCart->save();
 
-        try{
-            Mail::to($order->email)->send(new OrderShipped($order));
-        }
-        catch(\Exception $e){
-            dd($e);
-        }
         return view('thanks');
 
     }

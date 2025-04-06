@@ -10,14 +10,14 @@ class AdminOrderController extends Controller
 {
 
     private $status_array = [
-        "N" => ['PENDING', 'blue'],
-        "C" => ['CANCELED', 'red'],
-        "D" => ['DELIVERED', 'limegreen'],
-        'P' => ['PAID', 'limegreen']
+        "N" => ['Chưa xử lý', 'blue'],
+        "C" => ['Huỷ đơn', 'red'],
+        "D" => ['Đã vận chuyển', 'limegreen'],
+        'P' => ['Đã thanh toán', 'limegreen']
     ];
     
     private $transaction_mode = [
-        "COD" => "Cash on Delivery"
+        "COD" => "Thanh toán khi nhận hàng"
     ];
 
     /**

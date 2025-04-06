@@ -10,8 +10,8 @@
             $slot 
         ------------------ --}}
     <div class="_container">
-        <h1>Account</h1><br>
-        <p>GENERAL</p>
+        <h1>TÀI KHOẢN</h1><br>
+        <p>Tổng quan</p>
         <hr>
         <div class="general">
             <div class="profile card">
@@ -32,22 +32,22 @@
                     @endif
 
                     @csrf
-                    <input type="text" name="first_name" placeholder="First name" value="{{ $user->first_name }}" required>
-                    <input type="text" name="last_name" placeholder="Last name" value="{{ $user->last_name }}" required>
+                    <input type="text" name="first_name" placeholder="Họ" value="{{ $user->first_name }}" required>
+                    <input type="text" name="last_name" placeholder="Tên" value="{{ $user->last_name }}" required>
                     <input type="email" name="email" placeholder="Email" value="{{ $user->email }}" disabled>
-                    <input type="number" name="mobile" value="{{ $user->mobile }}" placeholder="Phone number">
-                    <textarea name="intro" cols="30" rows="10" placeholder="Describe yourself here...">{{$user->intro}}</textarea>
+                    <input type="number" name="mobile" value="{{ $user->mobile }}" placeholder="Số điện thoại">
+                    <textarea name="intro" cols="30" rows="10" placeholder="Giới thiệu bản thân bạn nha">{{$user->intro}}</textarea>
 
-                    <input type="submit" value="Save changes">
+                    <input type="submit" value="Lưu thay đổi">
             </form>
         </div>
 
 
-        <p style="margin-top: 3rem">SECURITY</p>
+        <p style="margin-top: 3rem">Bảo mật</p>
         <hr>
         <div class="security">
             <div class="card change_pwd">
-                <h3>Change password</h3>
+                <h3>Thay đổi mật khẩu</h3>
                 <form action="{{ route('admin.account.pwd') }}" method="post">
                     @if (session('pwdStatus'))
                         <p style="grid-column: span 2; color: rgb(20, 236, 20)">{{ session('pwdStatus') }}</p>
@@ -60,10 +60,10 @@
                     @endif
 
                     @csrf
-                    <input type="password" name="old" placeholder="Old password" required><br>
-                    <input type="password" name="password" placeholder="New password" required><br>
-                    <input type="password" name="password_confirmation" placeholder="Confirm password" required><br>
-                    <input type="submit" value="Change Password">
+                    <input type="password" name="old" placeholder="Mật khẩu cũ" required><br>
+                    <input type="password" name="password" placeholder="Mật khẩu mới" required><br>
+                    <input type="password" name="password_confirmation" placeholder="Nhập lại mật khẩu mới" required><br>
+                    <input type="submit" value="Thay đổi mật khẩu">
                 </form>
             </div>
         </div>

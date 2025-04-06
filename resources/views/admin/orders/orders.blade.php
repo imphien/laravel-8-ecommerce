@@ -11,14 +11,14 @@
         ------------------ --}}
     <div class="_container">
         @if (!$orders->isEmpty())
-        <h1>Orders</h1><br>
+        <h1>Đơn hàng</h1><br>
         <div style="overflow-x: auto">
             <table style="width: 100%;min-width:650px" class="card">
                 <thead>
                     <tr>
-                        <th>Order({{count($orders)}})</th>
-                        <th>Status</th>
-                        <th>Details</th>
+                        <th>Đơn hàng({{count($orders)}})</th>
+                        <th>Trạng thái</th>
+                        <th>Chi tiết</th>
                     </tr>
                 </thead>
                 @foreach ($orders as $order)
@@ -31,19 +31,19 @@
                                 </div>
                                 <div>
                                     <strong>ORD-{{ $order->id }}</strong><br>
-                                    <span>Total of ${{ $order->grand_total }}</span>
+                                    <span>Tổng tiền{{ $order->grand_total }} VNĐ</span>
                                 </div>
                             </div>
                         </td>
 
                         <td><span style="background: {{$status[$order->status][1]}}" class="sm_card status">{{ $status[$order->status][0] }}</span></td>
-                        <td><a href="{{ route('admin.orders.show', ['order' => $order->id]) }}">View Order</a></td>
+                        <td><a href="{{ route('admin.orders.show', ['order' => $order->id]) }}">Xem đơn hàng</a></td>
                     </tr>
                 @endforeach
             </table>
         </div>
         @else
-            <p>No orders placed yet,   <a href="{{ route('admin.products.create') }}">Add More Products</a></p>
+            <p> Không có đơn hàng nào,   <a href="{{ route('admin.products.create') }}">Thêm sản phẩm nữa nhé</a></p>
         @endif
 
     </div>

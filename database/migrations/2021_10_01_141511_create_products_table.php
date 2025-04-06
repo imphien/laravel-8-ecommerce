@@ -21,9 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('price')->default(99);
             $table->integer('stock_quantity')->default(10);
             $table->unsignedTinyInteger('discount')->default(10);
-
-            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade'); 
-            // $table->boolean('shop')->default(1); (is product available for shopping)
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');           
             $table->timestamps();
         });
     }

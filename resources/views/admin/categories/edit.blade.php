@@ -12,18 +12,18 @@
                 <p style="color: red">{{ $error }}</p>
             @endforeach
         @endif
-         <h2>Update category</h2>
+         <h2>Cập nhật danh mục</h2>
          <form class="card" action="{{ route('admin.categories.update', ['category' => $category->id]) }}"
              method="post" enctype="multipart/form-data">
              @csrf
              @method('PUT')
-             Category Name: <input type="text" name="title" value="{{ $category->title }}" required
+             Tên danh mục: <input type="text" name="title" value="{{ $category->title }}" required
                  placeholder="Category name"><br><br>
-             Choose Img: <br><br>
+             Chọn hình ảnh: <br><br>
              <input id="up_img" type="file" name="image"><br><br>
              <img id="preview_img" style="max-width: 100px" src="{{ asset('storage/' . $category->image) }}"
                  alt="{{ $category->title }}"><br><br>
-             <input type="submit" value="Update category">
+             <input type="submit" value="Cập nhật danh mục">
          </form>
      </div>
      <script>

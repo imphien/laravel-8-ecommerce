@@ -3,8 +3,8 @@
   place-items: center;
   height: 70vh;
   text-align: center;
-  color: white;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/hero.jpg');
+  color: rgb(27, 174, 11);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/BG12.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -19,8 +19,8 @@
 .hero a {
   width: 100px;
   font-size: 1.5em;
-  background-color: #770014;
-  color: #ffffff;
+  background-color: #624b09;
+  color: #ffffff92;
   font-weight: bolder;
   padding: .5em 1em;
   margin: 0 auto;
@@ -43,14 +43,14 @@
 .category .screen{
   position: absolute;
   inset: 0;
-  background-color : rgba(0, 0, 0, 0.384);
+  background-color : rgba(252, 252, 252, 0);
 }
 .category h3{
   position: absolute;
   margin: 10px;
-  color: white;
+  color: rgb(20, 18, 14);
   font-family: monospace;
-  font-size: 1.5em;
+  font-size: 1.7em;
   bottom: 0;
 }
 

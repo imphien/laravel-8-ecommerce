@@ -7,13 +7,13 @@
 
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 
-    <title>Beyond</title>
+    <title>Thuốc Bắc Đỗ Gia</title>
 </head>
 <body>
     <main>
         <div>
             <a id="logo" href="/">
-                <img src="{{ asset('img/b.png') }}" alt="logo">
+                <img src="{{ asset('img/logo_1.png') }}" alt="logo">
             </a>
         </div>
 

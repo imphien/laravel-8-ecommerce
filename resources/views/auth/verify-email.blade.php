@@ -12,7 +12,7 @@
     <p>Email is arrived between 1 to 3 minutes after the registration, Check your inbox <strong>{{ auth()->user()->email }}</strong></p>
         
     <div class="flex_align_center">
-        <form method="POST" action="{{ route('verification.send') }}">
+        <form method="POST" action="{{ route('home') }}">
             @csrf
             <input type="submit" value="RESEND VERIFICATION EMAIL">
         </form>

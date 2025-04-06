@@ -9,17 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-
-    
     private $status_array = [
-        "N" => ['PENDING', 'blue'],
-        "C" => ['CANCELED', 'red'],
-        "P" => ['PAID', 'limegreen'],
-	    "D" => ['DELIVERED', 'limegreen']
+        "N" => ['Chưa xử lý', 'blue'],
+        "C" => ['Huỷ', 'red'],
+        "P" => ['Đã trả', 'limegreen'],
+	    "D" => ['Đang vận chuyển', 'limegreen']
     ];
     
     private $transaction_mode = [
-        "COD" => "Cash on Delivery"
+        "COD" => "Thanh toán khi nhận hàng"
     ];
 
 
@@ -31,7 +29,6 @@ class OrderController extends Controller
 
     public function index()
     {
-
         return view('user.orders', [
             'orders' => auth()->user()->orders,
             'status' => $this->status_array
@@ -46,9 +43,6 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        
-        abort_if($this->checkOrder($order), 404);
-
         return view('user.view-order', [
             'order' => $order,
             'status' => $this->status_array,

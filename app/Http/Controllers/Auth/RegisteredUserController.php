@@ -10,8 +10,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-
-
+use Illuminate\Support\Carbon;
 
 class RegisteredUserController extends Controller
 {
@@ -34,14 +33,15 @@ class RegisteredUserController extends Controller
             'last_name' => $validated['last_name'],
             'email' => $validated['email'],
             'password' => Hash::make($request->password),
+            'email_verified_at' => Carbon::now(),
         ]);
 
         try{
-            event(new Registered($user));
+            //event(new Registered($user));
     
             Auth::login($user);
-    
             $this->syncUserCart($request);
+
             return redirect(RouteServiceProvider::HOME)->withCookie(cookie('products','',-1));
             
         }catch(\Swift_TransportException $e){

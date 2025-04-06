@@ -38,26 +38,6 @@ class AdminAccountController extends Controller
        
         $user->save();
 
-        return redirect()->route('admin.account')->with('status', 'profile updated');
-    }
-
-    public function updatePwd(Request $request){
-        $validated = $request->validateWithBag('pwdError',[
-            'old' => 'required',
-            'password' => 'required|confirmed|min:6|different:old',
-        ]);
-
-        $user = User::find(Auth::user()->id);
-        
-        if (Hash::check($request->old, $user->password)) { 
-           $user->password = Hash::make($request->password);
-           $user->save();
-        
-           return redirect()->route('admin.account')->with('pwdStatus', 'password changed!');
-
-        
-        } else {
-            return redirect()->route('admin.account')->withErrors('incorrect old password', 'pwdError');
-        }
+        return redirect()->route('admin.account')->with('status', 'Đã thay đổi hồ sơ');
     }
 }

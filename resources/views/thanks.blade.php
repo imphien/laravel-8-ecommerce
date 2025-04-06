@@ -20,8 +20,8 @@
         <section>
             <main class="_container">
                 <span style="font-size: 10rem" class="material-icons">done</span>
-                <h1>Thank You</h1>
-                <p>You have successfully placed your order. <a href="{{ route('user.orders.index')}}">View Order Detail</a></p>
+                <h1>Cảm ơn bạn đã đặt hàng</h1>
+                <p>Bạn đã đặt hàng thành công <a href="{{ route('user.orders.index')}}">Xem chi tiết đơn đặt hàng</a></p>
             </main>
         </section>
 

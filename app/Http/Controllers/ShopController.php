@@ -24,7 +24,7 @@ class ShopController extends Controller
         $products = Product::when(! empty($search_keywords), function(Builder $query) use ($search_keywords){
             return $query->where(function(Builder $query) use ($search_keywords){
                 foreach ($search_keywords as $keyword) {
-                    $query->orWhere('about', 'LIKE', "%{$keyword}%");
+                    $query->orWhere('title', 'LIKE', "%{$keyword}%");
                 }
             });
         })->when(!empty($request->query('category')), function(Builder $query) use ($request){

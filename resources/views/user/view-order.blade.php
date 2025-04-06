@@ -10,31 +10,31 @@
             border-bottom: 3px solid var(--site_col_1);
         }
     </style>
-        <h3>Order Information</h3>
+        <h3>Thông tin đơn hàng</h3>
         <div class="grid">
             <div>
-                <h4>Order Id #{{ $order->id }}</h4>
+                <h4>ID đơn hàng #{{ $order->id }}</h4>
                 <hr>
                 <div>
                     <div class="flex_align">
-                        <span>Order Status</span>
+                        <span>Trạng thái đơn hàng</span>
                         <span style="color: {{$status[$order->status][1]}}">{{ $status[$order->status][0] }}</span>
                     </div>
                     <div class="flex_align">
-                        <span>Order Date</span>
+                        <span>Ngày đặt đơn</span>
                         <span>{{ $order->created_at }}</span>
                     </div>
                     @if ($order->status == 'N')
                         <form style="padding: 10px 0" action="{{ route('user.orders.update', ['order' => $order->id]) }}" method="post">
                             @csrf
                             @method('PUT')
-                            <input type="submit" value="Cancel this order">
+                            <input type="submit" value="Huỷ đơn hàng">
                         </form>
                     @endif
                 </div>
             </div>
             <div>
-                <h4>Shipping Details/Address</h4>
+                <h4>Địa chỉ nhận hàng</h4>
                 <hr>
                 <div>
                     <Address>
@@ -44,16 +44,16 @@
                 </div>
             </div>
             <div>
-                <h4>Billing Details</h4>
+                <h4>Thông tin hoá đơn</h4>
                 <hr>
                 <div>
                     @foreach ($order->transactions as $transaction)
                         <div class="flex_align">
-                            <span>Payment Method</span>
+                            <span>Phương thức thanh toán</span>
                             <span>{{ $mode[$transaction->mode] }}</span>
                         </div>
                         <div class="flex_align">
-                            <span>Payment Status</span>
+                            <span>Trạng thái thanh toán</span>
                             <span style="color: {{$status[$transaction->status][1]}}">{{ $status[$transaction->status][0] }}</span>
                         </div>
                         @if ($loop->remaining > 1)
@@ -63,15 +63,15 @@
                 </div>
             </div>
             <div>
-                <h4>Order Details</h4>
+                <h4>Chi tiết đơn hàng</h4>
                 <hr>
                 <div>
                     <div class="flex_align">
-                        <span>Sub Total</span>
-                        <span>${{ $order->grand_total }}</span>
+                        <span>Tổng thu</span>
+                        <span>{{ $order->grand_total }} VNĐ</span>
                     </div>
                     <div class="flex_align">
-                        <span>Package reciver name</span>
+                        <span>Tên người nhận</span>
                         <span>{{ $order->first_name }}</span>
                     </div>
                 </div>
@@ -82,10 +82,10 @@
             <table style="width: 100%;min-width:450px" cellspacing="0">
                 <thead>
                     <tr>
-                        <td colspan="2">Product</td>
-                        <td>Price</td>
-                        <td>Quantity</td>
-                        <td>Total Price</td>
+                        <td colspan="2">Sản phẩm</td>
+                        <td>Giá</td>
+                        <td>Số lượng</td>
+                        <td>Tổng tiền</td>
                     </tr>
                 </thead>
                 @foreach ($order->products as $product)
@@ -96,9 +96,9 @@
                             </div>
                         </td>
                         <td>{{ $product->title }}</td>
-                        <td>${{ $product->price }}</td>
+                        <td>{{ $product->price }} VNĐ</td>
                         <td>{{ $product->pivot->quantity }}</td>
-                        <td>${{ $product->pivot->quantity * $product->price }}</td>
+                        <td>{{ $product->pivot->quantity * $product->price }} VNĐ</td>
                     </tr>
                 @endforeach
             </table>
