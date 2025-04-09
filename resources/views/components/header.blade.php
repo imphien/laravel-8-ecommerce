@@ -1,6 +1,6 @@
 <header>
     <nav class="flex_align _container">
-        <a class="logo-link d-b" href="{{ route('home') }}"><img class="d-b" src="{{ asset('img/logo_1.png') }}" alt="logo"></a>
+        <a class="logo-link d-b" href="{{ route('home') }}"><img class="d-b" src="{{ asset('img/logo_pickleball.svg') }}" alt="logo"></a>
         <a class="ml-auto" href="{{ route('new') }}">Tin tức</a>
         <a class="ml-auto" href="{{ route('contact') }}">Liên hệ</a>
         <form class="ml-auto one-form" action="{{ route('shop') }}" method="GET">
@@ -15,11 +15,6 @@
                 <a style="width: 2rem" class="logo-link d-b" href="{{ route('login') }}">
                 Login
                 </a>
-            @else
-                <form action="{{ route('logout') }}" method="post">
-                    @csrf
-                    <input class="logout" type="submit" value="Đăng xuất">
-                </form>
             @endif
             </li>
             <li class="space-lr">

@@ -12,8 +12,8 @@
     {{ $style }}
 
 
-    <link rel="shortcut icon" href="{{ asset('img/logo_1.png') }}" />
-    <title>Thuốc Bắc Đỗ Gia</title>
+    <link rel="shortcut icon" href="{{ asset('img/logo_pickleball.svg') }}" />
+    <title>Pickleball Đông Nguyễn</title>
 
     <script src="{{ asset('js/utilities.js') }}" defer></script>
     {{ $js ?? '' }}
@@ -28,7 +28,7 @@
     {{-- main contents --}}
     <footer>
         <div class="site-info">
-            <a class="logo-link d-b" href="#"><img class="d-b" src="{{ asset('img/logo_1.png') }}"
+            <a class="logo-link d-b" href="#"><img class="d-b" src="{{ asset('img/logo_pickleball.svg') }}"
                     alt="logo"></a>
             <p> Mọi chi tiết liên hệ </p>
             <p> 0987481877 <p>

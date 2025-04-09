@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="{{ asset('css/admin/utilities.css') }}">
         {{ $style }}
 
-    <link rel="shortcut icon" href="{{ asset('img/logo_1.png') }}" />
-    <title>Thuốc bắc Đỗ Gia</title>
+    <link rel="shortcut icon" href="{{ asset('img/logo_pickleball.svg') }}" />
+    <title>Pickleball Đông Nguyễn</title>
 
     <!-- scripts -->
     <script src="{{ asset('js/admin/utilities.js') }}" defer></script>
@@ -33,7 +33,7 @@
 
     <nav>
         <span class="ham material-icons">menu</span>
-        <a id="nav_logo" class="d-b" href="#"><img class="fit_img" src="{{ asset('img/logo_1.png') }}" alt="logo"></a>
+        <a id="nav_logo" class="d-b" href="#"><img class="fit_img" src="{{ asset('img/logo_pickleball.svg') }}" alt="logo"></a>
         <div class="nav_admin">
             <img class="fit_img admin_img" src="{{ asset('storage/avatar/admin.jpg'); }}" alt="admin_img">
         </div>
@@ -42,7 +42,7 @@
 
     <aside>
         <div id="aside_logo">
-            <a class="d-b" href="#"><img class="fit_img" src="{{ asset('img/logo_1.png') }}" alt="logo"></a>
+            <a class="d-b" href="#"><img class="fit_img" src="{{ asset('img/logo_pickleball.svg') }}" alt="logo"></a>
         </div>
         <div id="aside_admin">
             <div class="card flex_align">

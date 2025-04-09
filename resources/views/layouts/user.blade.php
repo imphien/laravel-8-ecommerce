@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="{{ asset('css/user/utilities.css') }}">
     {{ $style ?? '' }}
     
-    <link rel="shortcut icon" href="{{ asset('img/logo_1.png') }}" />
-    <title>Thuốc Bắc Đỗ Gia</title>
+    <link rel="shortcut icon" href="{{ asset('img/logo_dashboard.png') }}" />
+    <title>Pickleball Đông Nguyễn</title>
 
     <script src="{{ asset('js/user/utilities.js') }}" defer></script>
 
@@ -38,6 +38,10 @@
             @if (auth()->user()->admin)
                 <a style="color: blue; margin-top:1em" class="d-b" href="{{ route('admin.dashboard') }}">Dashboard</a>
             @endif
+            <form action="{{ route('logout') }}" method="post" style="padding-top: 10px">
+                @csrf
+                <input class="logout" type="submit" value="Đăng xuất">
+            </form>
 
             <!-- form -->
             <form class="cloak hide" action="{{ route('user.profile') }}" method="post">
@@ -68,13 +72,13 @@
                             <div>Đơn hàng</div>
                         </a>
                     </li>
-                    
-                    <li>
-                        <a class="flex_align" href="{{ route('user.setting') }}">
-                            <span class="material-icons">settings</span>
-                            <div>Cài đặt </div>
-                        </a>
-                    </li>
+
+{{--                    <li>--}}
+{{--                        <a class="flex_align" href="{{ route('user.setting') }}">--}}
+{{--                            <span class="material-icons">settings</span>--}}
+{{--                            <div>Cài đặt </div>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                 </ul>
             </div>
             <!-- main content -->

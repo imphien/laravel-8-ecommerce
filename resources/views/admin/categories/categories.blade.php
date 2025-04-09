@@ -30,7 +30,7 @@
                     <tr>
                         <td>
                             <div class="img_container img_cate">
-                                <img src="{{ asset('storage/'.$category->image) }}" alt="{{ $category->title }}">
+                                <img src="{{ asset('storage' . $category->image) }}" alt="{{ $category->title }}">
                             </div>
                         </td>
                         <td>{{ $category->title }}</td>

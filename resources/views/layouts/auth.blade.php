@@ -7,13 +7,13 @@
 
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 
-    <title>Thuốc Bắc Đỗ Gia</title>
+    <title>Pickleball Đông Nguyễn</title>
 </head>
 <body>
     <main>
         <div>
             <a id="logo" href="/">
-                <img src="{{ asset('img/logo_1.png') }}" alt="logo">
+                <img src="{{ asset('img/logo_pickleball.svg') }}" alt="logo">
             </a>
         </div>
 
