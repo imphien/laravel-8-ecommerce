@@ -63,6 +63,7 @@ Route::middleware('auth')->group(function(){
         Route::get('customers', function () {
             return view('admin.customer', ['users' => User::all()]);
         })->name('customers');
+        Route::delete('/customers/{id}', [UserController::class, 'destroy'])->name('customers.destroy');
         // categories
         Route::resource('categories', CategoryController::class)->except(['show'])->parameters(['categories' => 'category']);
         // products

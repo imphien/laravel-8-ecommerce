@@ -27,4 +27,11 @@ class UserController extends Controller
 
         return redirect()->route('user.profile');
     }
+
+    public function destroy(int $id)
+    {
+       User::query()->where('id', $id)->delete();
+
+        return redirect()->route('admin.customers');
+    }
 }

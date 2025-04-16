@@ -1,7 +1,7 @@
 <header>
     <nav class="flex_align _container">
         <a class="logo-link d-b" href="{{ route('home') }}"><img class="d-b" src="{{ asset('img/logo_pickleball.svg') }}" alt="logo"></a>
-        <a class="ml-auto" href="{{ route('new') }}">Tin tức</a>
+        <a class="ml-auto" href="{{ route('new') }}">Giới thiệu</a>
         <a class="ml-auto" href="{{ route('contact') }}">Liên hệ</a>
         <form class="ml-auto one-form" action="{{ route('shop') }}" method="GET">
             <input type="search" name="search" placeholder="Tìm kiếm sản phẩm..." value="{{ $search ?? '' }}">

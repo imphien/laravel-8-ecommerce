@@ -13,27 +13,30 @@
 
 
     <link rel="shortcut icon" href="{{ asset('img/logo_pickleball.svg') }}" />
-    <title>Pickleball Đông Nguyễn</title>
+    <title>HighPicks Sport</title>
 
     <script src="{{ asset('js/utilities.js') }}" defer></script>
     {{ $js ?? '' }}
 </head>
 
 <body class="m-0">
+@include('components.header')
 
-    @include('components.header')
-
-    {{-- main contents --}}
+<main>
     {{ $slot }}
-    {{-- main contents --}}
-    <footer>
-        <div class="site-info">
-            <a class="logo-link d-b" href="#"><img class="d-b" src="{{ asset('img/logo_pickleball.svg') }}"
-                    alt="logo"></a>
-            <p> Mọi chi tiết liên hệ </p>
-            <p> 0987481877 <p>
-        </div>
-    </footer>
+</main>
+
+<footer>
+    <div class="site-info">
+        <a class="logo-link d-b" href="#">
+            <img class="d-b" src="{{ asset('img/logo_pickleball.svg') }}" alt="logo">
+        </a>
+        <p>Mọi chi tiết liên hệ</p>
+        <p>Điện thoại: 0966076520</p>
+        <p>Facebook: <a href="https://www.facebook.com/garaphukien68" style="color: red">HighPicks Sport</a></p>
+    </div>
+</footer>
 </body>
+
 
 </html>

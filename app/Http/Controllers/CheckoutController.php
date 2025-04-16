@@ -33,16 +33,26 @@ class CheckoutController extends Controller
 
     public function createOrder(Request $request){
        
-        $validated = $request->validate([
+        $request->validate([
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'email' => 'required|email|max:255',
             'address_line' => 'required|max:255',
             'city' => 'required|max:255',
-            'postal_code' => 'required|numeric|digits:5',
-            'country' => 'required|max:255',
             'mobile' => 'required|numeric|digits:10',
             'cod' => 'required|boolean'
+        ],[
+            'first_name.required' => 'Vui lòng nhập Họ.',
+            'last_name.required' => 'Vui lòng nhập Tên.',
+            'email.required' => 'Vui lòng nhập Email.',
+            'email.email' => 'Email không đúng định dạng.',
+            'address_line.required' => 'Vui lòng nhập địa chỉ.',
+            'city.required' => 'Vui lòng nhập thành phố.',
+            'mobile.required' => 'Vui lòng nhập số điện thoại.',
+            'mobile.numeric' => 'Số điện thoại phải là số.',
+            'mobile.digits' => 'Số điện thoại phải gồm đúng 10 chữ số.',
+            'cod.required' => 'Vui lòng chọn phương thức thanh toán.',
+            'cod.boolean' => 'Dữ liệu thanh toán không hợp lệ.'
         ]);
 
         /** @var App\Models\User $user **/

@@ -50,10 +50,11 @@
         <div class="contact-info">
             
             <div>
-                <p>Cửa hàng THUỐC BẮC ĐỖ GIA</p>
-                <p>Địa chỉ: 236 Khương Đình Thanh Xuân Hà Nội</p>
-                <p>Điện thoại: 0987481877</p>
-                <p>Email: info@thuocbacdogia.com</p>
+                <p style="font-weight: bold">HIGHPICKS SPORT</p>
+                <p>Địa chỉ: 122 đường Hữu Nghị, thôn Thạch, Thạch Xá, Thạch Thất, Hà Nội</p>
+                <p>Điện thoại: 0966076520</p>
+                <p>Email: dong2000tx@gmail.com</p>
+                <p>Facebook: <a href="https://www.facebook.com/garaphukien68" style="color: red">HighPicks Sport</a></p>
             </div>
             <img src="img/RMBG.png" alt="Store Image" class="store-image">
             

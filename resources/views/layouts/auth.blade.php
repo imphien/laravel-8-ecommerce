@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 
-    <title>Pickleball Đông Nguyễn</title>
+    <title>HighPicks Sport</title>
 </head>
 <body>
     <main>

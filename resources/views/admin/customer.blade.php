@@ -19,6 +19,7 @@
                         <th>Email</th>
                         <!-- <th>Xác minh Email</th> -->
                         <th>QTV</th>
+                        <th>Hành động</th>
                     </tr>
                 </thead>
                 @foreach ($users as $user)
@@ -37,6 +38,13 @@
                         <td>{{ $user->email }}</td>
                         <!-- <td><span style="color: {{ $user->email_verified_at ? 'limegreen' : 'red' }}">{{ $user->email_verified_at ? "Có" : "Không" }}</span></td> -->
                         <td><span style="color: {{ $user->admin ? 'limegreen' : 'red' }}">{{ $user->admin ? "Có" : "Không" }}</span></td>
+                        <td>
+                            <form action="{{ route('admin.customers.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Bạn có chắc muốn xoá người dùng này?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn-delete">Xoá</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </table>

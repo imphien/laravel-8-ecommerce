@@ -45,16 +45,6 @@
                                     <input id="city" type="text" name="city" value="{{ old('city') }}" required>
                                 </div>
                                 <div class="form_group">
-                                    <label for="postal_code">Mã code</label>
-                                    <input id="postal_code" type="text" name="postal_code" value="{{ old('postal_code') }}" required>
-                                </div>
-                            </div>
-                            <div class="two_form">
-                                <div class="form_group">
-                                    <label for="country">Nước</label>
-                                    <input id="country" type="text" name="country" value="{{ old('country') }}" required>
-                                </div>
-                                <div class="form_group">
                                     <label for="mobile">Số điện thoại</label>
                                     <input id="mobile" type="text" name="mobile" value="{{ old('mobile') }}" required>
                                 </div>

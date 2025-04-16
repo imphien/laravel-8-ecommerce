@@ -17,8 +17,6 @@ class Order extends Model
         'email',
         'address_line',
         'city',
-        'postal_code',
-        'country',
         'mobile'
     ];
 

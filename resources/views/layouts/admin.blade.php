@@ -13,7 +13,7 @@
         {{ $style }}
 
     <link rel="shortcut icon" href="{{ asset('img/logo_pickleball.svg') }}" />
-    <title>Pickleball Đông Nguyễn</title>
+    <title>HighPicks Sport</title>
 
     <!-- scripts -->
     <script src="{{ asset('js/admin/utilities.js') }}" defer></script>

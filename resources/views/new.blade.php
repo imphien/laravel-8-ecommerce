@@ -2,107 +2,74 @@
     <x-slot name="style">
         {{-- <link rel="stylesheet" href="{{ asset('css/product.css') }}"> --}}
     </x-slot>
-    {{--------------------- 
-            $slot 
-        --------------------}}
-        <style>
-            main{
-                font-family: 'Roboto', sans-serif;
-                display: grid;
-                place-items: center;
-                padding: 2rem 0;
-            }
-            main a{
-                color: var(--site_col_1);
-                text-decoration: underline
-            }
-            .amtra-image {
-                width: 750px;
-                height: 520px;
-                display: block; 
-                margin: 0 auto;
-                
-            }
-            h1 {
+    <style>
+        main {
+            font-family: 'Roboto', sans-serif;
+            padding: 2rem 1rem;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        main h1 {
             text-align: center;
-            }
-            .congdung{
-                font-family: 'Roboto', sans-serif;
-                display: grid;
-                place-items: center;
-                text-align: left;
-                margin: 100px;
-            }
-            .chen-image {
-                width: 750px;
-                height: 420px;
-                display: block; 
-                margin: 0 auto;
-            }
-                
-        </style>
-        <section>
+            margin-bottom: 2rem;
+        }
+
+        main p {
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        main ol {
+            padding-left: 1.2rem;
+        }
+
+        main ol li {
+            margin-bottom: 0.8rem;
+        }
+
+        main strong {
+            font-weight: bold;
+        }
+
+        .section-title {
+            display: block;
+            margin-top: 2rem;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+
+    <section>
         @section('content')
-    <div class="container">
-        <h1>Sắc và uống thuốc Đông y thế nào cho đúng?</h1>
-        <div class="congdung">
-            <div>
-                <p>Người xưa cho rằng: Thuốc có công hiệu hay không một phần quan trọng là do cách sắc thuốc và uống thuốc.</p>
-               <h3> Cách sắc thuốc </h3>
-               <img src="img/ampha.jpeg" alt="Store Image" class="amtra-image">
-               <p >
-                Để nâng cao hiệu quả và tác dụng của thuốc cần sắc thuốc đúng cách trên cơ sở khoa học như sau:<br>
-                Ấm sắc thuốc: Nên dùng ấm bằng đất nung hoặc bằng sứ, không nên dùng ấm bằng kim loại kể cả nhôm để sắc thuốc bởi vì<br>
-                 trong các vị thuốc có rất nhiều các hoạt chất hữu cơ dễ bị kim loại phân hủy đặc biệt là tanin, sẽ làm biến đổi các hoạt chất của thuốc,
-                đôi khi còn có thể gây độc ảnh hưởng đến sức khỏe người dùng thuốc.
-                Nước sắc thuốc: Dùng nước sạch để sắc thuốc (nước mưa, nước giếng, nước máy). Lượng nước sử dụng để sắc thuốc tùy theo lượng thuốc nhiều hay ít mà đổ nước cho vừa phải. <br>
-                Theo kinh nghiệm nên đổ nước ngập thuốc chừng 2 đốt ngón tay là vừa đối với lần đầu; những lần sắc sau thì nên đổ ít hơn lần trước một chút.<br>
-                Cách sắc thuốc: Trước khi sắc thuốc, nên ngâm thuốc vào nước ấm hoặc nước lã sạch 15-30 phút, để tạo điều kiện cho các hoạt chất tách ra được dễ dàng và rút ngắn được thời gian sắc thuốc.<br>
-                Nếu là thuốc bổ nên sắc 3 lần, dùng lửa nhỏ sắc lâu. Mỗi lần sắc từ 60-90 phút.<br>
-                </p>
-                <h3>Cách uống thuốc</h3>
-                <p>
-                Uống thuốc vào thời điểm nào, mỗi lần uống bao nhiêu, uống làm bao nhiêu lần... cũng có ảnh hưởng nhất định đến hiệu quả của thuốc. Vì vậy khi uống thuốc Đông y cần lưu ý một số điểm như sau:
+            <main>
+                <p><strong>HighPicks Sport</strong> là nhà phân phối sản phẩm <strong>Pickleball</strong> chính hãng uy tín danh tiếng tại thị trường Việt Nam. <strong>HighPicks Sport</strong> luôn tiên phong cung cấp các sản phẩm <strong>Pickleball</strong> từ các hãng sản xuất nổi tiếng hàng đầu thế giới.</p>
+                <p>Với những hiểu biết về <strong>Pickleball</strong>, <strong>HighPicks Sport</strong> chúng tôi luôn mang đến các sản phẩm, dịch vụ chất lượng tốt nhất với phong cách phục vụ chuyên nghiệp, tận tâm đã được hàng ngàn khách hàng trên cả nước hợp tác và tín nhiệm, các đối tác mong muốn hợp tác.</p>
+                <div style="text-align: center">
+                    <img src="{{ asset('img/logo_intro.jpg') }}" alt="logo">
+                </div>
 
-                Thời gian uống thuốc:<br>
-                <br>
+                <span class="section-title">• TẦM NHÌN</span>
+                <p>Với khát vọng tiên phong và chú trọng đầu tư mạnh mẽ yếu tố nhân sự cùng hệ thống công nghệ, máy móc phục vụ công việc. Chúng tôi phấn đấu đến tháng 12 năm 2025 sẽ trở thành đơn vị đứng đầu trong lĩnh vực cung cấp các sản phẩm <strong>Pickleball</strong> tại Việt Nam.</p>
 
-                - Chữa bệnh ở thượng tiêu (các bệnh tim, phổi, nên uống thuốc sau khi ăn).<br>
+                <span class="section-title">• SỨ MỆNH</span>
+                <p>Đem đến cho khách hàng các sản phẩm <strong>Pickleball</strong>, phụ kiện cho môn thể thao <strong>Pickleball</strong> với chất lượng và dịch vụ tốt nhất, tối ưu nhất về chi phí.</p>
+                <p>Tạo ra môi trường làm việc tốt nhất, một cuộc sống hạnh phúc nhất cho toàn thể cán bộ công nhân viên công ty nhằm tạo cơ hội phát triển năng lực bản thân, đóng góp giá trị cho doanh nghiệp, xã hội.</p>
+                <p>Từ đó tạo dựng cuộc sống tốt đẹp, đầy đủ cho toàn thể cán bộ công nhân viên cùng gia đình.</p>
 
-                - Chữa bệnh ở trung hạ tiêu (bệnh ở gan, mật, dạ dày, bàng quang...) uống thuốc trước khi ăn.<br>
-
-                - Chữa bệnh ở kinh mạch, tứ chi uống thuốc vào lúc sáng sớm chưa ăn gì.<br>
-
-                - Chữa bệnh ở xương tủy uống thuốc lúc ăn no vào buổi tối.<br>
-
-                - Uống thuốc an thần nên uống trước khi đi ngủ.<br>
-
-                - Uống thuốc để chữa các bệnh cấp tính nên uống thuốc khi cần.<br>
-
-                - Nếu là thuốc bổ nên uống trước khi ăn.<br>
-
-                - Nếu là thuốc chữa bệnh nên uống vào lúc đói.<br>
-
-                - Mỗi thang thuốc nên chia uống làm 3-4 lần trong 1 ngày, nếu thuốc chữa bệnh cấp tính thì uống hết trong một lần.<br>
-
-                - Thuốc thang thì nên trộn đều các lần sắc với nhau và chia đều uống trong 1 ngày, uống khi thuốc còn ấm. Nếu là thuốc giải cảm khi uống xong cần phải tránh gió và đắp chăn cho ra mồ hôi vừa để đuổi tà khí.<br>
-
-                - Nếu là thuốc hàn (lạnh) để chữa bệnh nhiệt nên uống lúc còn nóng.<br>
-
-                - Nếu đã dùng thuốc đúng bệnh, uống thuốc rồi nhưng vẫn bị nôn thì nên giảm lượng thuốc uống hoặc thêm 3 lát gừng sống cho vào thuốc sắc hoặc là nhấm 1 lát gừng tươi trước khi uống thuốc.<br>
-
-                - Uống thuốc thấy bị đi lỏng, phân nát thì phải cho thêm ít gừng nướng, đập dập sắc chung với nước.<br>
-
-                - Uống thuốc thấy đi ngoài phân táo cần cho thêm vài ba đốt mía vào sắc chung hoặc cho thêm 1 thìa mật ong vào nước thuốc để uống.<br>
-
-                - Đối với người già khi uống thuốc nên dùng lượng nhỏ, chia nhiều lần để thăm dò.<br>
-                </p>
-                <img src="img/chen2.jpeg" alt="Store Image" class="chen-image">
-            </div>
-    </div>
-        </section>
-
-    {{--------------------- 
-        $slot 
-    --------------------}}
+                <span class="section-title">• GIÁ TRỊ CỐT LÕI</span>
+                <ol>
+                    <li><strong>TÍN:</strong> <strong>HighPicks Sport</strong> đặt chữ TÍN lên vị trí hàng đầu, xem đó là vũ khí cạnh tranh và bảo vệ như danh dự bản thân.</li>
+                    <li><strong>TÂM:</strong> Lấy khách hàng làm trung tâm, luôn phục vụ với sự tận tâm và chất lượng cao nhất.</li>
+                    <li><strong>TỬ TẾ:</strong> Thấm nhuần sự tử tế trong suy nghĩ, lời nói và hành động hàng ngày.</li>
+                    <li><strong>KHÁCH HÀNG:</strong> Luôn coi khách hàng là trung tâm trong mọi suy nghĩ và hành động.</li>
+                    <li><strong>CẦU TIẾN:</strong> Không ngừng học hỏi, đổi mới và sẵn sàng thay đổi.</li>
+                    <li><strong>GIỮ LỜI HỨA:</strong> Luôn giữ lời với khách hàng, đồng nghiệp, đối tác và nội bộ.</li>
+                    <li><strong>TRÁCH NHIỆM:</strong> Luôn chủ động giải quyết vấn đề, không trốn tránh.</li>
+                    <li><strong>YÊU THƯƠNG:</strong> Yêu thương như gia đình, phối hợp như một đội bóng.</li>
+                    <li><strong>TRUNG THỰC:</strong> Thẳng thắn, trung thực và không gian dối trong công việc và cuộc sống.</li>
+                </ol>
+            </main>
+    </section>
 </x-app-layout>
