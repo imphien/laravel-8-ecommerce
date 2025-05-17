@@ -114,6 +114,6 @@ class ProductController extends Controller
         $title = $product->title;
         $product->delete();
 
-        return redirect()->route('admin.products.index')->with('status', 'product "'.$title.'" deleted successfully');
+        return redirect()->route('admin.products.index')->with('status', 'Sản phẩm "'.$title.'" xoá thành công');
     }
 }
