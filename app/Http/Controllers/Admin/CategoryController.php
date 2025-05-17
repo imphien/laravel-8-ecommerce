@@ -82,6 +82,6 @@ class CategoryController extends Controller
         $title = $category->title;
         $category->delete();
 
-        return redirect()->route('admin.categories.index')->with('status', $title.' category deleted');
+        return redirect()->route('admin.categories.index')->with('status', $title.' đã xoá');
     }
 }

@@ -59,6 +59,7 @@ Route::middleware('auth')->group(function(){
         // account
         Route::get('/account', [AdminAccountController::class, 'general'])->name('account');
         Route::post('/account', [AdminAccountController::class, 'update'])->name('account.update');
+        Route::post('/account/password', [AdminAccountController::class, 'updatePassword'])->name('account.pwd');
         // customers
         Route::get('customers', function () {
             return view('admin.customer', ['users' => User::all()]);

@@ -57,7 +57,7 @@
             </table>
         </div>
         @else
-            <p>No products avialable in stock <a href="{{ route('admin.products.create') }}">CREATE</a></p>
+            <p>Không có sản phẩm nào <a href="{{ route('admin.products.create') }}">Tạo</a></p>
         @endif
     </div>
     <x-modal title="Xoá sản phẩm" ok="DELETE">

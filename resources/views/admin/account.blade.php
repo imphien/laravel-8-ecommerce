@@ -69,11 +69,6 @@
         </div>
 
     </div>
-    @if (session('pwdStatus') || $errors->pwdError->any())
-        <script>
-            window.scrollTo(0,3000);
-        </script>
-    @endif
 
     {{-- ------------------- 
             $slot 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AdminAccountController extends Controller
 {
@@ -39,5 +40,28 @@ class AdminAccountController extends Controller
         $user->save();
 
         return redirect()->route('admin.account')->with('status', 'Đã thay đổi hồ sơ');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'old' => ['required'],
+            'password' => ['required', 'min:8', 'confirmed'], // `confirmed` sẽ tự so với `password_confirmation`
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator, 'pwdError');
+        }
+
+        $user = Auth::user();
+
+        if (!Hash::check($request->input('old'), $user->password)) {
+            return back()->withErrors(['old' => 'Mật khẩu cũ không đúng'], 'pwdError');
+        }
+
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        return back()->with('pwdStatus', 'Mật khẩu đã được cập nhật thành công.');
     }
 }
