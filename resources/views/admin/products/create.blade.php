@@ -13,36 +13,56 @@
                 @endforeach
             @endif
             <h2>Tạo sản phẩm</h2>
-            <form class="card" action="{{ route('admin.products.store') }}" method="post" enctype="multipart/form-data">
-                @csrf
-                <fieldset style="max-width: 200px">
-                    <legend>Danh mục</legend>
-                    <select name="category_id" required>
-                        @foreach ($categories as $category)
-                            @if (old('category_id') == $category->id)
-                                <option selected value="{{$category->id}}">{{ ucfirst($category->title) }}</option>
-                                @continue
-                            @endif
-                            <option value="{{$category->id}}">{{ ucfirst($category->title) }}</option>
-                        @endforeach
-                    </select>
-                </fieldset><br>
+                <form class="card" action="{{ route('admin.products.store') }}" method="post" enctype="multipart/form-data">
+                    @csrf
 
-                Tên sản phẩm: <input type="text" name="title" value="{{ old('title') }}" required placeholder="Tên sản phẩm"><br><br>
+                    <fieldset style="max-width: 400px; margin-bottom: 20px;">
+                        <legend>Danh mục</legend>
+                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <label for="category_id" style="width: 150px; font-weight: bold;">Chọn danh mục:</label>
+                            <select name="category_id" id="category_id" required style="flex: 1; padding: 6px; max-width: 200px;">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                            {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                        {{ ucfirst($category->title) }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </fieldset>
 
-                Chọn hình ảnh: <br><br>
-                <input type="file" name="image" required><br><br>
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <label for="title" style="width: 150px; font-weight: bold;">Tên sản phẩm:</label>
+                        <input type="text" name="title" id="title" value="{{ old('title') }}" required placeholder="Tên sản phẩm" style="flex: 1; padding: 6px; max-width: 200px;">
+                    </div>
 
-                Thông tin sản phẩm: <input type="text" name="about" value="{{ old('about') }}" required placeholder="Thông tin"><br><br>
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <label for="image" style="width: 150px; font-weight: bold;">Chọn hình ảnh:</label>
+                        <input type="file" name="image" id="image" required style="flex: 1; max-width: 200px;">
+                    </div>
 
-                Giá: <input type="number" name="price" min="0" value="{{ old('price') }}" required><br><br>
+                    <div style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+                        <label for="about" style="width: 150px; font-weight: bold; padding-top: 6px;">Thông tin:</label>
+                        <textarea name="about" id="about" required placeholder="Thông tin" style="flex: 1; padding: 6px; max-width: 400px;" rows="10">{{ old('about') }}</textarea>
+                    </div>
 
-                Số lượng sản phẩm: <input type="number" min="0" name="stock_quantity" value="{{ old('stock_quantity') }}" required><br><br>
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <label for="price" style="width: 150px; font-weight: bold;">Giá:</label>
+                        <input type="number" name="price" id="price" min="0" value="{{ old('price') }}" required style="flex: 1; padding: 6px; max-width: 200px;">
+                    </div>
 
-                Giảm giá: <input type="number" min="0" value="{{ old('discount') }}" name="discount" step="5"><br><br>
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <label for="stock_quantity" style="width: 150px; font-weight: bold;">Số lượng:</label>
+                        <input type="number" name="stock_quantity" id="stock_quantity" min="0" value="{{ old('stock_quantity') }}" required style="flex: 1; padding: 6px; max-width: 200px;">
+                    </div>
 
-                <input type="submit" value="Tạo sản phẩm mới">
-            </form>
+                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <label for="discount" style="width: 150px; font-weight: bold;">Giảm giá (%):</label>
+                        <input type="number" name="discount" id="discount" min="0" step="5" value="{{ old('discount') }}" style="flex: 1; padding: 6px; max-width: 200px;">
+                    </div>
+
+                    <input type="submit" value="Tạo sản phẩm mới" style="margin-left: 150px; padding: 8px 16px;">
+                </form>
         </div>
     {{--------------------- 
             $slot 
