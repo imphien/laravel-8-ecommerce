@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 :root{
-    --primary_col: rgb(34, 43, 54);
+    --primary_col: #2C3E50;
     --secondary-col: rgb(23, 28, 36);
     --line: 1px solid rgba(145, 158, 171, 0.24);
     --text-grey: rgb(145, 158, 171);
@@ -116,7 +116,7 @@ nav{
     padding: 0 2rem;
 }
 #nav_logo{
-    height: 60%;
+    height: 100%;
 }
 .ham{
     display: none;

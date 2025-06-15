@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Category;
 use Illuminate\View\Component;
 
 class AppLayout extends Component
@@ -23,6 +24,8 @@ class AppLayout extends Component
      */
     public function render()
     {
-        return view('layouts.app');
+        return view('layouts.app', [
+            'categories' => Category::all()->take(4)
+        ]);
     }
 }

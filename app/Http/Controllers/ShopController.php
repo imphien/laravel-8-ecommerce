@@ -13,7 +13,7 @@ class ShopController extends Controller
     {
         return view('home', [
             'products' => Product::all()->take(8),
-            'categories' => Category::all()->take(4)
+            'categories' => Category::all()->take(8)
         ]);
     }
 

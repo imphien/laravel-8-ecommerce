@@ -10,8 +10,8 @@
     <section class="hero">
         <div class="hero-inner">
             <h1 class="m-0">HIGHPICKS SPORT </h1>
-            <h2>NƠI BẠN ĐẶT TRỌN NIỀM TIN</h2>
-            <a class="d-b" href="{{ route('shop') }}">Mua ngay</a>
+            <h2 style="font-size: 20px">NƠI BẠN ĐẶT TRỌN NIỀM TIN</h2>
+            <a class="d-b" href="{{ route('shop') }}" style="font-size: 10px">Mua ngay</a>
         </div>
     </section>
     <section class="featured-products _container">

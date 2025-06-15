@@ -11,25 +11,36 @@ use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
-    public function showForm(){
-        /** @var \App\Models\User $user **/
+    public function showForm()
+    {
         $user = Auth::user();
 
         $userCart = $user->carts()->firstOrCreate(['status' => 'N']);
 
-        if($userCart->products->isEmpty())
+        if ($userCart->products->isEmpty()) {
             return redirect('/');
+        }
 
-        $subTotal = $userCart->products->sum(function($product){
+        $originalTotal = $userCart->products->sum(function ($product) {
             return $product->price * $product->pivot->quantity;
         });
 
+        $discount = $userCart->products->sum(function ($product) {
+            $discountRate = $product->discount ?? 0;
+            $discountAmount = $product->price * ($discountRate / 100);
+            return $discountAmount * $product->pivot->quantity;
+        });
+
+        $subTotal = $originalTotal - $discount;
+
         return view('checkout', [
             'user' => $user,
-            'subTotal' => $subTotal
+            'originalTotal' => $originalTotal,
+            'discount' => $discount,
+            'subTotal' => $subTotal,
         ]);
-      
     }
+
 
     public function createOrder(Request $request){
        

@@ -13,7 +13,7 @@
     <main>
         <div>
             <a id="logo" href="/">
-                <img src="{{ asset('img/logo_pickleball.svg') }}" alt="logo">
+                <img src="{{ asset('img/logo_pickleball.png') }}" alt="logo">
             </a>
         </div>
 

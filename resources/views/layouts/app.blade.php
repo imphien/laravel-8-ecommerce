@@ -12,7 +12,7 @@
     {{ $style }}
 
 
-    <link rel="shortcut icon" href="{{ asset('img/logo_pickleball.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('img/logo_pickleball.png') }}" />
     <title>HighPicks Sport</title>
 
     <script src="{{ asset('js/utilities.js') }}" defer></script>
@@ -29,7 +29,7 @@
 <footer>
     <div class="site-info">
         <a class="logo-link d-b" href="#">
-            <img class="d-b" src="{{ asset('img/logo_pickleball.svg') }}" alt="logo">
+            <img class="d-b" src="{{ asset('img/logo_pickleball.png') }}" alt="logo">
         </a>
         <p>Mọi chi tiết liên hệ</p>
         <p>Điện thoại: 0966076520</p>
