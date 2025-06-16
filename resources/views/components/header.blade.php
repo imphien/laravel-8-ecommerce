@@ -1,6 +1,10 @@
 <header>
     <nav class="flex_align _container">
-        <a class="logo-link d-b" href="{{ route('home') }}"><img class="d-b" src="{{ asset('img/logo_pickleball.png') }}" alt="logo"></a>
+        <div style="margin-right: auto;">
+            <a class="logo-link d-b" href="{{ route('home') }}">
+                <img class="d-b" src="{{ asset('img/logo_pickleball.png') }}" alt="logo">
+            </a>
+        </div>
         <a class="ml-auto" href="{{ route('new') }}">Giới thiệu</a>
         <a class="ml-auto" href="{{ route('contact') }}">Liên hệ</a>
         <li style="position: relative; list-style: none;"

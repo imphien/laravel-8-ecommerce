@@ -35,7 +35,7 @@
         <span class="ham material-icons">menu</span>
         <a id="nav_logo" class="d-b" href="#"><img class="fit_img" src="{{ asset('img/logo_pickleball.png') }}" alt="logo"></a>
         <div class="nav_admin">
-            <img class="fit_img admin_img" src="{{ asset('storage/avatar/admin.jpg') }}" alt="admin_img">
+            <img class="fit_img admin_img" src="{{ asset('storage/avatar/admin.png') }}" alt="admin_img">
         </div>
     </nav>
 
@@ -46,7 +46,7 @@
         </div>
         <div id="aside_admin">
             <div class="card flex_align">
-                <img class="fit_img admin_img" src="{{ asset('storage/avatar/admin.jpg') }}" alt="admin_img">
+                <img class="fit_img admin_img" src="{{ asset('storage/avatar/admin.png') }}" alt="admin_img">
                 <div>
                     <h6>{{ auth()->user()->full_name }}</h6>
                     <form action="{{ route('logout') }}" method="post">

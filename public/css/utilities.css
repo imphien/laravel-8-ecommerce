@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-    --head_col: #2C3E50;
+    --head_col: #111111;
     --site_col_1: #3da8f3;
     --site_text_1: #b3b3b3;
 }
@@ -27,7 +27,7 @@ ul {
 }
 
 ._container {
-    max-width: 980px;
+    max-width: 1030px;
     margin: 0 auto;
     padding: 0 10px;
 }
