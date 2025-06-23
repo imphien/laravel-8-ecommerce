@@ -39,6 +39,7 @@
   height: 250px;
   border-radius: .5rem;
   transition: transform 100ms ease-out;
+  width: 250px;
 }
 .category .screen{
   position: absolute;

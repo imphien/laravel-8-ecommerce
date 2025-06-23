@@ -53,7 +53,7 @@ a {
 ============ */
 .product_card {
     box-shadow: 0 0 5px var(--head_col);
-    max-width: 250px;
+    width: 250px;
     font-family: monospace;
     text-align: center;
     font-size: 1.2em;

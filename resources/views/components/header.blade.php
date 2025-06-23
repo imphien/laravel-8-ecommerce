@@ -55,7 +55,7 @@
 
                             <div style="display: flex; flex-direction: column; line-height: 1.2;">
                         <span style="font-weight: bold; font-size: 14px;">
-                            {{ strtoupper($category->title) }}
+                            {{ $category->title }}
                         </span>
                             </div>
                         </a>
